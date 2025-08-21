@@ -17,7 +17,7 @@ touch TODO.md
 - Rename your main branch from `master` to `main` (If your branch name is already `main` then rename it
 
 ```sh
-git branch -m <name>
+git branch -m main
 ```
 
 - Stage your changes and commit them

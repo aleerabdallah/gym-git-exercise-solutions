@@ -169,21 +169,8 @@ git checkout -b ft/service-redesign
 - Add new changes to the `service.html` page
 
 ```html
-<h1>Welcome to Our Services Page</h1>
-<p>Here you can find all the services we offer.</p>
 <!--New content-->
-<div class="card-wrapper">
-  <div>
-    <div>
-      <h2>Training</h2>
-      <img src="" alt="No image" />
-    </div>
-    <div>
-      <h2>Mentorship</h2>
-      <img src="" alt="No image" />
-    </div>
-  </div>
-</div>
+<h1>Welcome to Our Updated Services Page</h1>
 ```
 
 - commit and push them
@@ -192,7 +179,7 @@ git checkout -b ft/service-redesign
 
 git status
 git add services.html
-git commit -m "Created: div for cards "
+git commit -m "redesign: updated the main heading"
 git push origin ft/service-redesign
 ```
 
@@ -211,41 +198,210 @@ git checkout main
 
 ```
 
+```html
+!--New content from main -->
+<h1>Welcome to Our Main Updated Services Page</h1>
+```
+
 - Commit and push those changes
 
 ```sh
 
 git add services.html
-git commit -m "Main: Updated the content below the heading"
+git commit -m "Main: Updated the heading services.html into a different content"
 git push origin main
 
 ```
 
 - Now go back to the Github PR you had created for the `ft/service-redesign`branch, you will then see that you have conflicts with the `main` branch
+
+```
+This branch has conflicts that must be resolved
+Use the web editor or the command line to resolve conflicts before continuing.
+
+services.html
+```
+
 - In your project checkout the `ft/service-redesign`branch
+
+```sh
+git checkout ft/service-redesign
+```
+
 - Compare the `ft/service-redesign`with the `main` branch using git diff and observe the changes
+
+```sh
+git diff main
+```
+
+```
+diff --git a/services.html b/services.html
+index a414629..575b15b 100644
+--- a/services.html
++++ b/services.html
+@@ -5,7 +5,7 @@
+     <title>Our Services</title>
+   </head>
+   <body>
+-    <h1>Welcome to Our Main Updated Services Page</h1>
++    <h1>Welcome to Our Updated Services Page</h1>
+     <p>Here you can find all the services we offer.</p>
+     <div class="card-wrapper">
+       <div>
+```
+
 - Using git merge, merge the `main` branch with `ft/service-redesign` branch and commit and push you changes again
+
+```sh
+
+git merge main
+```
+
+```html
+<!--fixed conflict -->
+<h1>Welcome to Our Amazing Updated Services Page</h1>
+```
+
+```sh
+git add services.html
+git commit -m "Resolved merge conflict between main and ft/service-redesign"
+git push origin ft/service-redesign
+```
+
+```
+No conflicts with base branch
+Merging can be performed automatically.
+```
 
 ## Bundle 3
 
 ### Exercise 1
 
 - Create a new branch named `ft/team-page`
+
+```sh
+git checkout -b ft/team-page
+```
+
 - Create a new html page named `team.html` and add some changes
+
+```sh
+touch team.html
+```
+
 - commit and push those changes
+
+```sh
+git add team.html
+git commit -m "Added team.html"
+git push -u origin ft/team-page
+```
+
 - Create a new PR for the changes
+
+```sh
+Created a pull request using UI
+
+```
+
 - Go back to `main` branch (checkout the `main` branch)
+
+```sh
+git checkout main
+```
+
 - Create new branch named `ft/contact-page`
+
+```sh
+git checkout -b ft/contact-page
+
+```
+
 - Go back to the `ft/team-page`
+
+```sh
+git checkout ft/team-page
+```
+
 - With the help of git log look for the last commit and copy its hash
+
+```sh
+git log --oneline
+
+4e4b013 (HEAD -> ft/team-page, origin/ft/team-page) Added team.html
+964f1a7 (origin/ft/service-redesign, ft/service-redesign) Resolved merge conflict between main and ft/service-redesign
+adcbf4e (origin/main, main, ft/contact-page) Main: updated the heading service.html into a different content
+0b09ee7 redesign: updated the main heading
+```
+
 - Checkout again `ft/contact-page` using git cherry-pick get the changes from the last commit on the `ft/team-page` branch.
+
+```sh
+git checkout ft/contact-page
+git cherry-pick 4e4b013
+
+[ft/contact-page 95b73e0] Added team.html
+ Date: Fri Aug 22 17:10:11 2025 +0200
+ 1 file changed, 9 insertions(+)
+```
+
 - Add new changes for the contact page and commit, push them
+
+```sh
+touch contact.html
+git add contact.html
+git commit -m "Added: contact.html with some content"
+git push -u origin ft/contact-page
+```
+
 - Create a new PR for the contact page
+
+```sh
+Opened a pull request on github ready for review
+```
+
 - From the `ft/contact-page` branch create a new branch called `ft/faq-page`
+
+```sh
+git checkout -b ft/faq-page
+```
+
 - Create a new `faq.html` page and add some changes there
+
+```sh
+touch faq.html
+```
+
 - Commit and push those changes
+
+```sh
+git add faq.html
+git commit -m "Added: faq.html with some content in it"
+git push origin ft/faq-page
+```
+
 - Using git revert, revert the changes of the last commit of the `ft/team-page` branch. (use the commit hash you copied earlier)
+
+```sh
+git checkout ft/team-page
+git revert 4e4b013
+
+```
+
+Output:
+
+```sh
+[ft/team-page 13181ca] Revert "Added team.html"
+ 1 file changed, 9 deletions(-)
+```
+
 - Push the changes and create a new PR
+
+```sh
+git push origin ft/team-page
+```
+
+Opened a pull request ready for review before merge
 
 ### Exercise 2
 

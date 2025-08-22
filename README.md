@@ -154,12 +154,73 @@ git push origin ft/bundle-2
 ### Exercise 2
 
 - Checkout your `main` branch and pull the latest changes
+
+```sh
+git chekout main
+git pull origin main
+```
+
 - Create a new branch named `ft/service-redesign`
+
+```sh
+git checkout -b ft/service-redesign
+```
+
 - Add new changes to the `service.html` page
+
+```html
+<h1>Welcome to Our Services Page</h1>
+<p>Here you can find all the services we offer.</p>
+<!--New content-->
+<div class="card-wrapper">
+  <div>
+    <div>
+      <h2>Training</h2>
+      <img src="" alt="No image" />
+    </div>
+    <div>
+      <h2>Mentorship</h2>
+      <img src="" alt="No image" />
+    </div>
+  </div>
+</div>
+```
+
 - commit and push them
+
+```sh
+
+git status
+git add services.html
+git commit -m "Created: div for cards "
+git push origin ft/service-redesign
+```
+
 - create a new PR for your changes
+
+```sh
+
+
+
+```
+
 - go back to your `main` branch and add again new changes to your `service.html` page, you can add different changes but make sure to affect the same part(line of code) as you did in the other PR
+
+```sh
+git checkout main
+
+```
+
 - Commit and push those changes
+
+```sh
+
+git add services.html
+git commit -m "Main: Updated the content below the heading"
+git push origin main
+
+```
+
 - Now go back to the Github PR you had created for the `ft/service-redesign`branch, you will then see that you have conflicts with the `main` branch
 - In your project checkout the `ft/service-redesign`branch
 - Compare the `ft/service-redesign`with the `main` branch using git diff and observe the changes

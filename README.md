@@ -427,14 +427,87 @@ Opened a pull request ready for review before merge
 ### Exercise 2
 
 - Checkout a new branch named `ft/footer`
+
+```sh
+git checkout -b ft/footer
+```
+
 - Add some changes to the branch and commit them
+
+```sh
+touch footer.html
+```
+
+```html
+<footer>
+  <p>© 2025 MyWebsite. All rights reserved.</p>
+</footer>
+```
+
+```sh
+git add .
+git commit -m "Added: a footer component"
+```
+
 - Add more changes again to the branch and create a second commit
+
+```html
+<footer>
+  <nav>
+    <a href="/about">About</a> | <a href="/privacy">Privacy Policy</a> |
+    <a href="/terms">Terms of Service</a>
+  </nav>
+  <p>© 2025 MyWebsite. All rights reserved.</p>
+</footer>
+```
+
+```sh
+git add .
+git commit -m "Added: nav links to footer components"
+```
+
 - Push and create a new PR for the branch
+
+```sh
+git push origin ft/footer
+```
+
 - Checkout the `main` branch again
+
+```sh
+git checkout main
+```
+
 - From there create a new branch named `ft/squashing`
+
+```sh
+git checkout -b ft/squashing
+```
+
 - Using git merge squash, squash the changes on the `ft/footer` branch
+
+```sh
+git merge --squash ft/footer
+
+Updating fc17de1..af3ea5b
+Fast-forward
+Squash commit -- not updating HEAD
+ footer.html | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 footer.html
+```
+
 - Commit the changes with a different commit message such as `footer changes squashing`
+
+```sh
+git commit -m "footer changes squashing"
+```
+
 - Push the changes and create a PR
+
+```sh
+git push origin ft/squashing
+```
 
 ## Bundle 5
 

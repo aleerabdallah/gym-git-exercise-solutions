@@ -406,23 +406,96 @@ Opened a pull request ready for review before merge
 ### Exercise 2
 
 - Create new branch from the `ft/faq-page` branch named `ft/home-page-redesign`
+
+```sh
+git checkout ft/faq-page
+git checkout -b ft/home-page-redesign
+```
+
 - Go back to the `main` branch and make some changes there
+
+```sh
+git checkout main
+```
+
 - Commit and push them
+
+```sh
+git add .
+git commit -m "Update: changes made on main branch"
+git push origin main
+```
+
 - go back to the `ft/home-page-redesign` branch
+
+```sh
+git checkout ft/home-page-redesign
+```
+
 - Using git rebase, rebase your branch to `main`
+
+```sh
+git fetch origin
+git rebase origin/main
+```
+
 - Add changes to the home page and commit push them
+
+```sh
+git add .
+git commit -m "Feat: redesign homepage layout"
+```
+
 - Create a PR for the changes.
+
+```sh
+Opened a PR request that needs to be reviewed
+```
 
 ## Bundle 4
 
 ### Exercise 1
 
 - Checkout the `main` branch
+
+```sh
+git checkout main
+```
+
 - Create a new repository on Github
 - Using git remote add the repo to your project as second remote named `git-copy`
+
+```sh
+git remote add git-copy git@github.com:aleerabdallah/bundle-one-copy.git
+git remote -v
+```
+
 - Make a new changes on the home page
+
+```html
+<div>
+  <h2>Testimonials</h2>
+  <div>
+    <div>
+      <img src="" alt="Image" />
+    </div>
+  </div>
+</div>
+```
+
 - Commit the changes
+
+```sh
+git add .
+git commit -m "Added: testimonials section"
+```
+
 - Push the changes to the both remotes. the `origin` and `git-copy`
+
+```sh
+git push origin main
+git push git-copy main
+```
 
 ### Exercise 2
 
@@ -516,13 +589,39 @@ git push origin ft/squashing
 - On your Github repo enable Github pages
 - Check if the link is publicly visible to anyone
 
+```sh
+https://aleerabdallah.github.io/bundle-one/
+```
+
 ### Exercise 2
 
 - Fork this project <https://github.com/TheGymRwanda/git-cafe-exercise>
+
 - Clone your fork on your machine
+
+```sh
+git clone git@github.com:aleerabdallah/git-cafe-exercise.git
+```
+
 - Edit the `index.html` file
+
 - Change the text `Welcome to our place` to `Welcome to our restaurant`
+
+```html
+<....>
+<h2><em>Welcome</em>to our restaurant</h2>
+<....>
+```
+
 - Commit and push the changes
+
+```sh
+git checkout -b edit-homepage-text
+git add index.html
+git commit -m "Changed welcome text to 'Welcome to our restaurant' "
+git push origin edit-homepage-text
+```
+
 - Raise a PR to the original Repo
 
 ## Bundle 6
@@ -534,21 +633,65 @@ Keep in mind that each exercise must be done on a different branch
 ### Exercise 1
 
 - On the `git-cafe-exercise` repo create a new feature branch
+
+```sh
+git checkout -b ft/menu-page
+```
+
 - Add new changes related to a new page named `Menu`
+
+```sh
+touch menu.html
+```
+
 - Afterward, raise a new PR
+
+```sh
+git add menu.html
+git commit -m "Added: new menu page"
+git push origin ft/menu-page
+```
+
 - Request review
 
 ### Exercise 2
 
 - Create a new bug fix branch
+
+```sh
+git checkout -b fix/index4-title
+```
+
 - From there change the title of the `index-4.html` file to “**Contact**”
+
+```sh
+
+```
+
 - Raise a new PR
+
+```sh
+git add index-4.html
+git commit -m "Fix: Change title in index-4.html to 'Contact'"
+git push origin fix/index4-title
+```
+
 - Request review
 
 ### Exercise 3
 
 - On the `git-cafe-exercise` repo, there is a small hot-fix on the contact page
+
 - Change the telephone on the `index-4.html` page from `+1 800 603 6035` to `+1 800 659 6035`
+
+```sh
+git checkout main
+git pull origin main
+git checkout -b hotfix/update-contact-number
+git commit -m "Fix: '+1 800 603 6035' to '+1 800 659 6035'"
+git push origin hotfix/update-contact-number
+
+```
 
 ### Exercise 4
 
